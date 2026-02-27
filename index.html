@@ -3,33 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bautismo Aisha</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .hero-section {
-            background-color: #f8f9fa;
-            padding: 60px 0;
-            text-align: center;
-        }
-        .btn-primary { background-color: #0056b3; border: none; }
-    </style>
+    <title>Bautizo de Aisha Hailen</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🕊️</text></svg>">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://product-gallery.cloudinary.com/all.js" type="text/javascript"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-        <div class="container">
-            <a class="navbar-brand" href="#"><b>Bautismo</b> | Aisha</a>
-        </div>
-    </nav>
-
     <header class="hero-section">
-        <div class="container">
-            <h1 class="display-4">Bienvenidos al Bautismo de Aisha</h1>
-            <p class="lead">Gracias por asistir al compromiso</p>
-            <a href="#contacto" class="btn btn-primary btn-lg">Confirmar asistencia</a>
+        <div class="hero-content">
+            <h1>Bienvenidos al Bautizo & Primer año de</h1>
+            <h2 class="baby-name">Aisha Hailen</h2>
+            <p class="date">Sábado, 28 de Febrero de 2026</p>
         </div>
     </header>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <section id="upload-section" class="section-container pink-bg">
+        <div class="container center-text">
+            <h3>Comparte tus Recuerdos</h3>
+            <p>Selecciona tus fotos. Toca cualquier miniatura para verlas en pantalla completa antes de subir.</p>
+            
+            <input type="file" id="file_selector" accept="image/*,video/*" multiple style="display: none;">
+            
+            <button id="btn_seleccionar_archivos" class="btn-gold" style="margin-top: 20px;">Seleccionar Fotos o Videos 📸</button>
+            
+            <div id="preview_wrapper" style="display: none; margin-top: 20px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; max-width: 100%; margin-left: auto; margin-right: auto;">
+                <div style="position: relative;">
+                    <div id="preview_container" style="display: none; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 15px 0;"></div>
+                    <button id="btn_discard" title="Descartar todas" style="display: none; position: absolute; top: -15px; right: -15px; background: var(--dark-pink, #db7093); color: white; border: none; border-radius: 50%; width: 30px; height: 30px; font-size: 16px; cursor: pointer; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.3); line-height: 1; z-index: 10;">×</button>
+                </div>
+                <br>
+                <button id="btn_confirmar_subida" class="btn-gold" style="display: none;">Subir Archivos 🚀</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery-section" class="section-container white-bg">
+        <div class="container center-text">
+            <h3>Galería de recuerdos</h3>
+            <p>Revive los mejores momentos capturados por nuestros invitados.</p>
+
+            <div id="mi_galeria_carrusel" style="max-width: 800px; margin: 30px auto; min-height: 400px; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);"></div>
+            
+            <button id="btn_abrir_album" class="btn-gold" style="margin-top: 30px; background-color: var(--dark-pink);">📖 Ver Álbum completo</button>
+        </div>
+    </section>
+
+    <section id="godparents-section" class="section-container pink-textured-bg">
+        <div class="container">
+             <h3>Padrinos y Ahijada: Nuestro Compromiso</h3>
+             <div class="gold-frame-container">
+                <div class="godparents-content">
+                    <div class="pink-banner">
+                        <p>Padrino Aldair Gomez, Madrina Nayeli Siancas<br>y Ahijada Aisha Hailen</p>
+                    </div>
+                    <div class="parchment-scroll">
+                        <p class="wish-text">
+                            "Nos sentimos honrados de guiar tus pasos en la fe y la vida. 
+                            Nuestro deseo es que crezcas con salud, sabiduría y un espíritu noble. 
+                            ¡Siempre contarás con nuestro apoyo incondicional!"
+                        </p>
+                    </div>
+                </div>
+             </div>
+        </div>
+    </section>
+
+    <section id="wishes-section" class="section-container pink-bg">
+        <div class="container center-text">
+            <h3>Muro de los Deseos ✨</h3>
+            <p>Déjale unas palabras de amor a Aisha Hailen. Quedarán guardadas para siempre.</p>
+            
+            <div class="wish-form-container">
+                <input type="text" id="wish_name" placeholder="Tu Nombre (Ej. Aldair Gomez)" maxlength="50" required>
+                <textarea id="wish_message" placeholder="Escribe tu mensaje o deseo aquí..." rows="3" maxlength="300" required></textarea>
+                <button id="btn_enviar_deseo" class="btn-gold" style="margin-top: 10px; width: 100%;">Publicar Deseo 💌</button>
+            </div>
+
+            <div id="wishes_wall" class="wishes-wall">
+                <div class="wish-card">
+                    <p class="wish-text">"Que Dios guíe siempre tus pasos y te llene de bendiciones en cada etapa de tu vida."</p>
+                    <p class="wish-author">- Tus Padres</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Hecho con amor para Aisha Hailen | 2026</p>
+        
+        <div style="margin-top: 15px; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 15px; display: inline-block;">
+            <p style="margin-bottom: 5px;">Desarrollado por <strong>Aldair Gomez</strong></p>
+            <a href="https://wa.me/51969429556" target="_blank" style="color: var(--cream); text-decoration: none; font-weight: 600; transition: color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--cream)'">
+                📱 Contacto: 969429556
+            </a>
+        </div>
+    </footer>
+
+    <div id="fullscreen_modal" class="fullscreen-modal" style="display: none;">
+        <div class="modal-header">
+            <span id="modal_counter" class="modal-counter">1 / 1</span>
+            <button id="modal_close" class="modal-close">Cerrar ✖</button>
+        </div>
+        <div id="swipe_hint_overlay" class="swipe-hint-overlay"><div class="gesture-animation-wrapper"><div class="gesture-hand">🖐️</div></div><p>Desliza para navegar</p></div>
+        <div class="modal-body" id="modal_swipe_area">
+            <button id="modal_prev" class="nav-arrow left-arrow">❮</button>
+            <div class="modal-image-container">
+                <img id="modal_image" src="" alt="Previsualización">
+                
+                <video id="modal_video" controls style="display:none; max-width: 100%; max-height: 65vh; border-radius: 8px; border: 2px solid var(--gold); margin: 0 auto; background: black;"></video>
+                
+                <button id="modal_discard_single" class="modal-discard">🗑️ Quitar esta foto</button>
+            </div>
+            <button id="modal_next" class="nav-arrow right-arrow">❯</button>
+        </div>
+        <div class="modal-footer"><button id="modal_upload_btn" class="btn-gold modal-upload">Subir Archivos 🚀</button></div>
+    </div>
+
+    <div id="upload_overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15,15,15,0.9); z-index: 100000; flex-direction: column; align-items: center; justify-content: center; color: white; font-family: var(--font-sans); backdrop-filter: blur(5px);">
+        <div id="upload_success_icon" style="display: none; font-size: 5rem; margin-bottom: 20px;">✅</div>
+        <h2 id="upload_status_text" style="margin-bottom: 20px; text-align: center; font-weight: 400;">Preparando...</h2>
+        <div id="progress_container" style="width: 80%; max-width: 400px; height: 20px; background: #333; border-radius: 10px; overflow: hidden; border: 2px solid var(--gold); box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);">
+            <div id="upload_progress_bar" style="width: 0%; height: 100%; background: linear-gradient(90deg, var(--gold), #ffdf73); transition: width 0.2s linear;"></div>
+        </div>
+    </div>
+
+    <div id="album_modal" class="fullscreen-modal" style="display: none; background: var(--cream); color: var(--text-dark); z-index: 100000; overflow-y: auto; justify-content: flex-start;">
+        <div class="modal-header" style="background: var(--primary-pink); position: sticky; top: 0; z-index: 10;">
+            <h3 style="margin: 0; font-size: 1.5rem; color: white; font-family: var(--font-serif);">Álbum del Evento</h3>
+            <button id="btn_cerrar_album" class="modal-close" style="color: white; border-color: rgba(255,255,255,0.5);">Cerrar ✖</button>
+        </div>
+        <div style="text-align: center; padding: 20px; background: white; border-bottom: 2px solid var(--primary-pink);">
+            <p style="margin-bottom: 15px;">Selecciona una foto para verla en grande o descarga todo el álbum.</p>
+            <button id="btn_descargar_todo_album" class="btn-gold" style="margin: 0; background-color: var(--dark-pink);">Descargar Todo el Álbum 📥</button>
+        </div>
+        <div style="padding: 20px;">
+            <div id="album_grid" style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; max-width: 1000px; margin: 0 auto;">
+                <h3 style="color: var(--dark-pink);">Cargando recuerdos... ⏳</h3>
+            </div>
+        </div>
+    </div>
+
+    <div id="viewer_modal" class="fullscreen-modal" style="display: none; z-index: 100005;">
+        <div class="modal-header">
+            <span id="viewer_counter" class="modal-counter">1 / 1</span>
+            <button id="btn_cerrar_viewer" class="modal-close">Volver al Álbum ✖</button>
+        </div>
+        
+        <div class="modal-body" id="viewer_swipe_area">
+            <button id="viewer_prev" class="nav-arrow left-arrow">❮</button>
+            
+            <div class="modal-image-container" style="width: 100%;">
+                <img id="viewer_image" src="" alt="Vista en detalle" style="display:none; max-width: 100%; max-height: 65vh; object-fit: contain; border-radius: 8px; border: 2px solid var(--gold); margin: 0 auto;">
+                <video id="viewer_video" controls style="display:none; max-width: 100%; max-height: 65vh; border-radius: 8px; border: 2px solid var(--gold); margin: 0 auto; background: black;"></video>
+            </div>
+
+            <button id="viewer_next" class="nav-arrow right-arrow">❯</button>
+        </div>
+
+        <div class="modal-footer">
+            <button id="btn_descargar_actual" class="btn-gold modal-upload" style="background-color: var(--dark-pink);">⬇️ Descargar Este Archivo</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

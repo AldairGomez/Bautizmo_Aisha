@@ -1,0 +1,474 @@
+/* --- Variables de Color y Tipografía --- */
+:root {
+    --primary-pink: #FFC0CB;      /* Rosa suave */
+    --secondary-pink: #FFB6C1;    /* Rosa medio */
+    --dark-pink: #db7093;         /* Rosa oscuro para textos/acentos */
+    --gold: #D4AF37;              /* Dorado para bordes y botones */
+    --cream: #FFFDD0;             /* Crema para fondos claros */
+    --text-dark: #4A4A4A;         /* Gris oscuro para texto general */
+    
+    --font-script: 'Great Vibes', cursive; /* Para títulos muy elegantes */
+    --font-serif: 'Lora', serif;           /* Para subtítulos y textos formales */
+    --font-sans: 'Montserrat', sans-serif; /* Para cuerpo de texto y botones */
+}
+
+/* --- Reseteo Básico --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-color: var(--cream);
+}
+
+/* --- Utilidades --- */
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.center-text { text-align: center; }
+
+.section-container { padding: 60px 0; }
+.pink-bg { background-color: var(--primary-pink); }
+.white-bg { background-color: #ffffff; }
+.pink-textured-bg {
+    background-color: var(--secondary-pink);
+    /* Opcional: añade una pequeña textura de fondo aquí si la tienes */
+    background-image: url('data:image/svg+xml,%3Csvg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23ffffff" fill-opacity="0.2" fill-rule="evenodd"%3E%3Ccircle cx="3" cy="3" r="3"/%3E%3Ccircle cx="13" cy="13" r="3"/%3E%3C/g%3E%3C/svg%3E');
+}
+
+h3 {
+    font-family: var(--font-serif);
+    color: var(--dark-pink);
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* --- Botones --- */
+.btn-gold {
+    background-color: var(--gold);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+    margin-top: 20px;
+}
+
+.btn-gold:hover {
+    background-color: #b3922b;
+    transform: translateY(-2px);
+}
+
+/* --- Header / Hero Section --- */
+.hero-section {
+    height: 60vh;
+    min-height: 400px;
+    background: linear-gradient(rgba(255, 192, 203, 0.8), rgba(255, 192, 203, 0.9)), url('https://via.placeholder.com/1200x800/ffb6c1/ffffff?text=Foto+de+Fondo+Bebé'); /* Pon aquí una foto real de fondo */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--dark-pink);
+}
+
+.hero-content h1 { font-family: var(--font-serif); font-size: 2rem; }
+.baby-name { font-family: var(--font-script); font-size: 4rem; margin: 10px 0; color: var(--gold); text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
+.date { font-size: 1.2rem; font-weight: 600; }
+
+/* --- Galería (Placeholder) --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 30px;
+}
+.gallery-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 3px solid var(--primary-pink);
+}
+
+/* --- SECCIÓN PADRINOS (Estilo Profesional) --- */
+.gold-frame-container {
+    border: 8px solid transparent;
+    padding: 20px;
+    position: relative;
+    background: white;
+    /* Truco CSS para el borde dorado con gradiente */
+    background-image: linear-gradient(white, white), radial-gradient(circle at top left, #fceabb, #d4af37);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border-radius: 4px;
+}
+
+.pink-banner {
+    background-color: var(--primary-pink);
+    color: var(--dark-pink);
+    text-align: center;
+    padding: 10px;
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border-bottom: 3px solid var(--gold);
+}
+
+.professional-photo img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    object-position: top center; /* Enfoca las caras */
+    border-radius: 4px;
+    border: 2px solid var(--gold);
+}
+
+.parchment-scroll {
+    background-color: #fffcee; /* Color pergamino claro */
+    padding: 30px;
+    margin-top: -30px; /* Superposición sobre la foto */
+    position: relative;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    border: 1px solid #e0d8b4;
+    /* Textura sutil de papel */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23d4af37' fill-opacity='0.1' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.wish-text {
+    font-family: var(--font-script);
+    font-size: 1.8rem;
+    text-align: center;
+    color: var(--text-dark);
+}
+
+/* --- Formulario --- */
+.form-container {
+    margin-top: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--dark-pink);
+    color: white;
+    font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .baby-name { font-size: 3rem; }
+    .wish-text { font-size: 1.5rem; padding: 10px; }
+    .parchment-scroll { width: 95%; margin-top: -20px; }
+}
+
+/* =========================================
+   ESTILOS DEL MODAL (PANTALLA COMPLETA)
+   ========================================= */
+.fullscreen-modal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(15, 15, 15, 0.98); /* Fondo casi negro puro */
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+    font-family: var(--font-sans);
+    backdrop-filter: blur(5px);
+}
+
+.modal-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px;
+}
+
+.modal-counter { font-size: 1.2rem; font-weight: 600; color: var(--primary-pink); }
+
+.modal-close {
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+    color: white; font-size: 1rem; padding: 8px 15px; border-radius: 20px;
+    cursor: pointer; transition: 0.3s;
+}
+.modal-close:hover { background: rgba(255,255,255,0.2); }
+
+.modal-body {
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden; padding: 0 10px;
+}
+
+.modal-image-container {
+    position: relative; max-width: 100%; max-height: 100%;
+    display: flex; justify-content: center; align-items: center;
+}
+
+#modal_image {
+    max-width: 100%; max-height: 65vh; object-fit: contain;
+    border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 2px solid var(--gold);
+}
+
+.video-placeholder {
+    width: 280px; height: 280px; background: #222; border: 2px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2rem; border-radius: 8px; color: var(--primary-pink);
+}
+
+.modal-discard {
+    position: absolute; top: 10px; right: 10px;
+    background: #ff4d4d; color: white; border: none;
+    padding: 10px 15px; border-radius: 20px; cursor: pointer;
+    font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    font-size: 0.9rem; transition: transform 0.2s;
+}
+.modal-discard:hover { transform: scale(1.05); }
+
+/* Flechas para PC */
+.nav-arrow {
+    background: rgba(255,255,255,0.1); border: none; color: white;
+    font-size: 2rem; padding: 15px; cursor: pointer;
+    position: absolute; z-index: 10; top: 50%; transform: translateY(-50%);
+    border-radius: 50%; width: 60px; height: 60px;
+    display: flex; justify-content: center; align-items: center;
+    transition: 0.3s;
+}
+.nav-arrow:hover { background: var(--dark-pink); }
+.left-arrow { left: 20px; }
+.right-arrow { right: 20px; }
+
+.modal-footer {
+    padding: 20px; text-align: center; padding-bottom: 40px;
+}
+.modal-upload {
+    width: 100%; max-width: 350px; font-size: 1.2rem; padding: 15px;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+}
+
+/* Adaptación para móviles */
+@media (max-width: 768px) {
+    .nav-arrow { display: none; /* Ocultamos flechas en celular porque usaremos swipe */ }
+    #modal_image { max-height: 55vh; }
+    .modal-discard { top: -15px; right: -5px; padding: 8px 12px; font-size: 0.8rem; }
+}
+
+/* =========================================
+   NUEVO DISEÑO: OVERLAY DE GESTO FANTASMA
+   ========================================= */
+.swipe-hint-overlay {
+    position: absolute; /* Dentro del modal fixed */
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro semitransparente */
+    z-index: 100005; /* Muy por encima de todo */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    
+    /* Estado inicial: oculto e invisible al tacto */
+    opacity: 0;
+    pointer-events: none; 
+    transition: opacity 0.3s ease-out;
+}
+
+/* Clase que activa el overlay */
+.swipe-hint-overlay.is-visible {
+    opacity: 1;
+    /* Importante: ahora sí captura los toques para poder descartarse */
+    pointer-events: none; 
+}
+
+.gesture-animation-wrapper {
+    margin-bottom: 20px;
+}
+
+.gesture-hand {
+    font-size: 5rem;
+    /* Hacemos que el emoji se vea blanco y semitransparente (efecto fantasma) */
+    filter: grayscale(100%) brightness(200%); 
+    opacity: 0.8;
+    /* Animación compleja de deslizamiento */
+    animation: ghostSwipe 2.5s ease-in-out infinite;
+}
+
+.swipe-hint-overlay p {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Animación que simula el gesto de swipe izquierda y derecha */
+@keyframes ghostSwipe {
+    0% { transform: translateX(0) scale(1); opacity: 0; }
+    10% { transform: translateX(0) scale(1); opacity: 0.8; } /* Aparece al centro */
+    
+    35% { transform: translateX(-80px) scale(0.9); opacity: 0; } /* Desliza izquierda y desvanece */
+    
+    50% { transform: translateX(0) scale(1); opacity: 0; } /* Vuelve al centro invisible */
+    60% { transform: translateX(0) scale(1); opacity: 0.8; } /* Reaparece al centro */
+    
+    85% { transform: translateX(80px) scale(0.9); opacity: 0; } /* Desliza derecha y desvanece */
+    100% { transform: translateX(0) scale(1); opacity: 0; }
+}
+
+/* En PC no es necesario mostrar esto */
+@media (min-width: 769px) {
+    .swipe-hint-overlay { display: none !important; }
+}
+
+/* =========================================
+   ESTILOS PARA TARJETAS DE DESCARGA
+   ========================================= */
+.download-card {
+    position: relative;
+    width: 140px;
+    background: white;
+    padding: 8px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    border: 2px solid var(--primary-pink);
+    transition: transform 0.2s;
+}
+
+.download-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+}
+
+.download-card img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.btn-download-small {
+    display: block;
+    background: var(--dark-pink);
+    color: white;
+    text-decoration: none;
+    padding: 8px 5px;
+    font-size: 0.85rem;
+    border-radius: 6px;
+    margin-top: 8px;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.btn-download-small:hover {
+    background: var(--gold);
+    color: white;
+}
+
+.video-indicator {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: rgba(0,0,0,0.7);
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* =========================================
+   ESTILOS PARA EL MURO DE DESEOS
+   ========================================= */
+.wish-form-container {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    max-width: 600px;
+    margin: 30px auto;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border-top: 5px solid var(--gold);
+}
+
+.wish-form-container input, 
+.wish-form-container textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    background-color: #fcfcfc;
+    transition: border-color 0.3s;
+}
+
+.wish-form-container input:focus, 
+.wish-form-container textarea:focus {
+    outline: none;
+    border-color: var(--primary-pink);
+    background-color: white;
+}
+
+.wishes-wall {
+    display: grid;
+    /* Se adapta automáticamente: en PC muestra varias columnas, en celular 1 sola */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.wish-card {
+    background: white;
+    padding: 25px 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-left: 4px solid var(--dark-pink);
+    text-align: left;
+    position: relative;
+    transition: transform 0.3s;
+}
+
+.wish-card:hover {
+    transform: translateY(-5px);
+}
+
+.wish-text {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+    line-height: 1.5;
+}
+
+.wish-author {
+    font-weight: 600;
+    color: var(--gold);
+    text-align: right;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+}
